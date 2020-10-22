@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<IncidentDef>
+		<defName>ChickenVOID_SolarFlare</defName>
+		<label>VOID</label>
+		<category>Misc</category>
+		<targetTags>
+		  <li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>SolarFlare</gameCondition>
+		<letterLabel>VOID</letterLabel>
+		<letterDef>VOID_NegativeEvent</letterDef>
+		<baseChance>0</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<durationDays>0.5~1.5</durationDays>
+	</IncidentDef>
+	
+	
+ <LetterDef Name="VOID_NegativeEvent">
+    <defName>VOID_NegativeEvent</defName>
+    <color>(140, 0, 255)</color>
+    <flashColor>(255, 0, 204)</flashColor>
+    <flashInterval>40</flashInterval>
+    <arriveSound>RH_VOIDBlackout</arriveSound>
+  </LetterDef>
+</Defs>
