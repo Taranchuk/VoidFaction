@@ -22,5 +22,7 @@ namespace VoidEvents
 
 		public static LetterDef Void_ThreatBig;
 
+		public static ThingDef Void_DefoliatorShipPart;
+
 	}
 }

@@ -46,6 +46,7 @@
     <Compile Include="Sites\GenStep_NerotoninStash.cs" />
     <Compile Include="Things\DefoliatorShipPart.cs" />
     <Compile Include="ShipPawnTypes.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_EerieNoises.cs" />
     <Compile Include="VoidDefOf.cs" />
     <Compile Include="QuestNodes\QuestNode_GetFactionFromDef.cs" />
     <Compile Include="Sites\SitePartWorker_NerotoninStash.cs" />
