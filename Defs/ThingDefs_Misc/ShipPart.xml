@@ -23,6 +23,14 @@
 			</damageData>
 		</graphicData>
 		<comps>
+			<li Class="CompProperties_CausesGameCondition_PsychicEmanation">
+				<conditionDef>PsychicDroner</conditionDef>
+				<compClass>CompCauseGameCondition_PsychicEmanation</compClass>
+				<worldRange>1</worldRange>
+				<droneLevelIncreaseInterval>150000</droneLevelIncreaseInterval>
+				<droneLevel>2</droneLevel>
+			</li>
+			<li Class="CompProperties_AnimalInsanityPulser" />
 			<li Class="CompProperties_PlantHarmRadius">
 				<radiusPerDayCurve>
 					<points>
