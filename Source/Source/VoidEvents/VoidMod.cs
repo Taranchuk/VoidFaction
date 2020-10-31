@@ -28,7 +28,7 @@ namespace VoidEvents
         // Return the name of the mod in the settings tab in game
         public override string SettingsCategory()
         {
-            return "ReGrowth Core";
+            return "[RH] Faction: VOID";
         }
 
         public override void WriteSettings()
