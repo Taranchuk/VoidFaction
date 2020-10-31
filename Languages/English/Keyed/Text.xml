@@ -4,5 +4,6 @@
 	<Void.SettlementIsDefeated>Label placeholder</Void.SettlementIsDefeated>
 	<Void.SettlementIsDefeatedDesc>{FACTION_name} - {0}</Void.SettlementIsDefeatedDesc>
 	<Void.EnableVoidExpansion>Enable Void expansion</Void.EnableVoidExpansion>
+	<Void.tickToSpawnHostiles>Threat spawn day: </Void.tickToSpawnHostiles>
 
 </LanguageData>

@@ -5,7 +5,7 @@
 		<label>VOID</label>
 		<category>Misc</category>
 		<targetTags>
-		  <li>Map_PlayerHome</li>
+			<li>Map_PlayerHome</li>
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>SolarFlare</gameCondition>
@@ -15,13 +15,39 @@
 		<minRefireDays>15</minRefireDays>
 		<durationDays>0.5~1.5</durationDays>
 	</IncidentDef>
-	
-	
- <LetterDef Name="VOID_NegativeEvent">
-    <defName>VOID_NegativeEvent</defName>
-    <color>(140, 0, 255)</color>
-    <flashColor>(255, 0, 204)</flashColor>
-    <flashInterval>40</flashInterval>
-    <arriveSound>RH_VOIDBlackout</arriveSound>
-  </LetterDef>
+
+
+	<LetterDef Name="VOID_NegativeEvent">
+		<defName>VOID_NegativeEvent</defName>
+		<color>(140, 0, 255)</color>
+		<flashColor>(255, 0, 204)</flashColor>
+		<flashInterval>40</flashInterval>
+		<arriveSound>RH_VOIDBlackout</arriveSound>
+	</LetterDef>
+
+	<IncidentDef>
+		<defName>Void_DefoliatorShipPartCrash</defName>
+		<label>ship part crash (defoliator)</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VoidEvents.IncidentWorker_CrashedShipPart</workerClass>
+		<letterLabel>Void Defoliator ship</letterLabel>
+		<letterText>A large piece of an ancient ship has crashed nearby.\n\nIts mysterious influence will kill all plants in an expanding circle around itself.\n\nDestroy it as soon as possible. But beware - it will probably defend itself.</letterText>
+		<letterDef>ThreatSmall</letterDef>
+		<baseChance>2.0</baseChance>
+		<baseChanceWithRoyalty>0.4</baseChanceWithRoyalty>
+		<minRefireDays>15</minRefireDays>
+		<tags>
+			<li>MechanoidShip</li>
+		</tags>
+		<refireCheckTags>
+			<li>MechanoidShip</li>
+		</refireCheckTags>
+		<category>ThreatBig</category>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>400</minThreatPoints>
+		<mechClusterBuilding>Void_DefoliatorShipPart</mechClusterBuilding>
+		<tale>ShipPartCrash</tale>
+	</IncidentDef>
 </Defs>
