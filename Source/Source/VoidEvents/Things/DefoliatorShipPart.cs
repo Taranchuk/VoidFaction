@@ -15,6 +15,7 @@ namespace VoidEvents
     class DefoliatorShipPart : Building
     {
         public int tickToSpawnHostiles = 0;
+        public bool spawnOnce = false;
         public ShipPawnTypes options;
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -37,17 +38,22 @@ namespace VoidEvents
 
         public void SpawnThreats()
         {
-            var chosenPawnType = options.pawnSpawnOptions.RandomElement();
-            var pawns = new List<Pawn>();
-            var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
-
-            for (int i = 0; i < chosenPawnType.amount; i++)
+            if (!spawnOnce)
             {
-                var pawn = PawnGenerator.GeneratePawn(chosenPawnType.pawnKindDef, voidFaction);
-                pawns.Add(pawn);
-                GenSpawn.Spawn(pawn, this.Position, this.Map);
+                var chosenPawnType = options.pawnSpawnOptions.RandomElement();
+                var pawns = new List<Pawn>();
+                var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
+
+                for (int i = 0; i < chosenPawnType.amount; i++)
+                {
+                    var pawn = PawnGenerator.GeneratePawn(chosenPawnType.pawnKindDef, voidFaction);
+                    pawns.Add(pawn);
+                    GenSpawn.Spawn(pawn, this.Position, this.Map);
+                }
+                LordMaker.MakeNewLord(voidFaction, new LordJob_AssaultColony(voidFaction), this.Map, pawns);
+                spawnOnce = true;
             }
-            LordMaker.MakeNewLord(voidFaction, new LordJob_AssaultColony(voidFaction), this.Map, pawns);
+
 
         }
         public override void Tick()
@@ -71,6 +77,8 @@ namespace VoidEvents
         {
             base.ExposeData();
             Scribe_Values.Look(ref tickToSpawnHostiles, "tickToSpawnHostiles");
+            Scribe_Values.Look(ref spawnOnce, "spawnOnce");
+
         }
     }
 }
