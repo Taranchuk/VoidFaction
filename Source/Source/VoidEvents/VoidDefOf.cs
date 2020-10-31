@@ -20,5 +20,7 @@ namespace VoidEvents
 
 		public static PawnKindDef RH_VOID_Elite;
 
+		public static LetterDef Void_ThreatBig;
+
 	}
 }

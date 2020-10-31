@@ -46,44 +46,47 @@ namespace VoidEvents
         public override void GameComponentTick()
         {
             base.GameComponentTick();
-            if (Find.TickManager.TicksAbs > tickToNextBaseConversion)
+            if (VoidSettings.EnableVoidExpansion)
             {
-                var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
-                tickToNextBaseConversion = Find.TickManager.TicksAbs + new IntRange(7 * GenDate.TicksPerDay, 30 * GenDate.TicksPerDay).RandomInRange;
-                var randomVoidBase = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def == VoidDefOf.RH_VOID).FirstOrDefault();
-                if (randomVoidBase == null)
+                if (Find.TickManager.TicksAbs > tickToNextBaseConversion)
                 {
-                    var settlementToConvert = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def != Faction.OfPlayer.def
-                        && x.Faction.def != VoidDefOf.RH_VOID).InRandomOrder().FirstOrDefault();
-                    if (settlementToConvert != null)
+                    var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
+                    tickToNextBaseConversion = Find.TickManager.TicksAbs + new IntRange(7 * GenDate.TicksPerDay, 30 * GenDate.TicksPerDay).RandomInRange;
+                    var randomVoidBase = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def == VoidDefOf.RH_VOID).FirstOrDefault();
+                    if (randomVoidBase == null)
                     {
-                        ConvertSettlement(settlementToConvert, voidFaction);
-                    }
-                }
-                else
-                {
-                    var settlementToConvert = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def != Faction.OfPlayer.def
-                        && x.Faction.def != VoidDefOf.RH_VOID).OrderBy(x => Find.WorldGrid.ApproxDistanceInTiles(randomVoidBase.Tile, x.Tile)).FirstOrDefault();
-                    if (settlementToConvert != null)
-                    {
-                        ConvertSettlement(settlementToConvert, voidFaction);
-                    }
-                }
-            }
-            if (this.voidReinforcementsToSend.Count > 0)
-            {
-                foreach (var data in this.voidReinforcementsToSend)
-                {
-                    if (Find.TickManager.TicksAbs == data.Value)
-                    {
-                        var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
-                        IncidentParms parms = new IncidentParms
+                        var settlementToConvert = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def != Faction.OfPlayer.def
+                            && x.Faction.def != VoidDefOf.RH_VOID).InRandomOrder().FirstOrDefault();
+                        if (settlementToConvert != null)
                         {
-                            target = data.Key,
-                            points = StorytellerUtility.DefaultThreatPointsNow(Find.World),
-                            faction = voidFaction
-                        };
-                        IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
+                            ConvertSettlement(settlementToConvert, voidFaction);
+                        }
+                    }
+                    else
+                    {
+                        var settlementToConvert = Find.WorldObjects.SettlementBases.Where(x => x.Faction.def != Faction.OfPlayer.def
+                            && x.Faction.def != VoidDefOf.RH_VOID).OrderBy(x => Find.WorldGrid.ApproxDistanceInTiles(randomVoidBase.Tile, x.Tile)).FirstOrDefault();
+                        if (settlementToConvert != null)
+                        {
+                            ConvertSettlement(settlementToConvert, voidFaction);
+                        }
+                    }
+                }
+                if (this.voidReinforcementsToSend.Count > 0)
+                {
+                    foreach (var data in this.voidReinforcementsToSend)
+                    {
+                        if (Find.TickManager.TicksAbs == data.Value)
+                        {
+                            var voidFaction = Find.FactionManager.FirstFactionOfDef(VoidDefOf.RH_VOID);
+                            IncidentParms parms = new IncidentParms
+                            {
+                                target = data.Key,
+                                points = StorytellerUtility.DefaultThreatPointsNow(Find.World),
+                                faction = voidFaction
+                            };
+                            IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
+                        }
                     }
                 }
             }
@@ -96,8 +99,9 @@ namespace VoidEvents
             settlement.Tile = settlementToConvert.Tile;
             settlement.Name = settlementToConvert.Name;
             Find.WorldObjects.Add(settlement);
+            Find.LetterStack.ReceiveLetter("Void.SettlementIsDefeated".Translate(), "Void.SettlementIsDefeatedDesc".Translate(settlementToConvert.Name, settlementToConvert.Faction.Named("FACTION"))
+                , VoidDefOf.Void_ThreatBig, settlement);
             settlementToConvert.Destroy();
-            Find.LetterStack.ReceiveLetter("Void.SettlementIsDefeated".Translate(), "Void.SettlementIsDefeatedDesc".Translate(), LetterDefOf.NegativeEvent, settlement);
         }
         public override void ExposeData()
         {

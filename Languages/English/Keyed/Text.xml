@@ -2,6 +2,7 @@
 <LanguageData>
 
 	<Void.SettlementIsDefeated>Label placeholder</Void.SettlementIsDefeated>
-	<Void.SettlementIsDefeatedDesc>Description placeholder</Void.SettlementIsDefeatedDesc>
+	<Void.SettlementIsDefeatedDesc>{FACTION_name} - {0}</Void.SettlementIsDefeatedDesc>
+	<Void.EnableVoidExpansion>Enable Void expansion</Void.EnableVoidExpansion>
 
 </LanguageData>

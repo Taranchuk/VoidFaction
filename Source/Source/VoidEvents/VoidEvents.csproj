@@ -46,6 +46,8 @@
     <Compile Include="VoidDefOf.cs" />
     <Compile Include="QuestNodes\QuestNode_GetFactionFromDef.cs" />
     <Compile Include="Sites\SitePartWorker_NerotoninStash.cs" />
+    <Compile Include="VoidSettings.cs" />
+    <Compile Include="VoidMod.cs" />
     <Compile Include="VoidGameComp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

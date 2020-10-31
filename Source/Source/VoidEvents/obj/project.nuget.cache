@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eS6Q6utMZYOFHNo1tjaNNkhC6BOqtiZYC8nXoFixoEzzY1Y9QhgkZfb41oyfhu0uJSNnb2Loj85KWj0VcvILYA==",
+  "dgSpecHash": "/a6B+x+0Ne3ZwLHWRDU1H0SuB5VOmFogYGdYPsmkXeZLICWpdRFeapCraQffdJEoT0m3JWFaqLyYMkWPAN0Y9w==",
   "success": true,
-  "projectFilePath": "c:\\GAMES\\Rimworld\\Mods\\(RH) VOID 1.2\\Source\\Source\\VoidEvents\\VoidEvents.csproj",
+  "projectFilePath": "C:\\GAMES\\Rimworld\\Mods\\VoidFaction\\Source\\Source\\VoidEvents\\VoidEvents.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.2.2753\\krafs.rimworld.ref.1.2.2753.nupkg.sha512",
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.0.2\\lib.harmony.2.0.2.nupkg.sha512"
