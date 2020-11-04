@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef>
+		<defName>Void_SecronomControlChip</defName>
+		<label>SecronomControlChip</label>
+		<labelNoun>SecronomControlChip</labelNoun>
+		<description>SecronomControlChip</description>
+		<stages>
+			<li>
+				<label>SecronomControlChip</label>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

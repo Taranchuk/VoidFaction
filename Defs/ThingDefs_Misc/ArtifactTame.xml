@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="ArtifactBase">
+		<defName>Void_SecronomControlChip</defName>
+		<label>Secronom control chip</label>
+		<description>placeholder.</description>
+		<graphicData>
+			<texPath>Things/Item/Artifact/PsychicAnimalPulser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<stackLimit>1</stackLimit>
+		<tradeNeverStack>true</tradeNeverStack>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MarketValue>700</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>
+		</statBases>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<comps>
+			<li Class="CompProperties_Targetable">
+				<compClass>VoidEvents.CompTargetable_SingleMutant</compClass>
+				<moteOnTarget>Mote_PsycastPsychicEffect</moteOnTarget>
+				<moteConnecting>Mote_PsycastPsychicLine</moteConnecting>
+			</li>
+			<li>
+				<compClass>VoidEvents.CompTargetEffect_TameMutant</compClass>
+			</li>
+			<li Class="CompProperties_UseEffectArtifact">
+				<sound>PsychicInsanityLanceCast</sound>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="VoidEvents.MutantsToTarget">
+				<mutants>
+					<li>RH_DF_BlackLeaper</li>
+					<li>RH_Titan</li>
+					<li>RH_Wraith</li>
+					<li>RH_DFGiantSpider</li>
+				</mutants>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

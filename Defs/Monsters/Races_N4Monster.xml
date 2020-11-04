@@ -2,6 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="BasePawn" Name="Base_RHN4Mutant" Abstract="True">
+	<thingClass>VoidEvents.Mutant</thingClass>
     <statBases>
       <PsychicSensitivity>0</PsychicSensitivity>
       <ComfyTemperatureMin>-55</ComfyTemperatureMin>
@@ -92,7 +93,7 @@
     </tools>
     <race>
       <intelligence>ToolUser</intelligence>
-      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeMain>Animal</thinkTreeMain>
       <body>RH_N4Mutant</body>
       <baseBodySize>20.0</baseBodySize>
       <baseHealthScale>25</baseHealthScale>
@@ -207,7 +208,7 @@
     </tools>
     <race>
       <intelligence>ToolUser</intelligence>
-      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeMain>Animal</thinkTreeMain>
       <body>RH_N4Mutant_Wraith</body>
       <baseBodySize>14.0</baseBodySize>
       <baseHealthScale>20</baseHealthScale>
@@ -330,7 +331,7 @@
     </tools>
     <race>
       <intelligence>ToolUser</intelligence>
-      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeMain>Animal</thinkTreeMain>
       <body>RH_N4Mutant_GiantSpider</body>
       <baseBodySize>20.0</baseBodySize>
       <baseHealthScale>18</baseHealthScale>

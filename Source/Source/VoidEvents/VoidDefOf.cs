@@ -24,5 +24,8 @@ namespace VoidEvents
 
 		public static ThingDef Void_DefoliatorShipPart;
 
+		public static HediffDef Void_SecronomControlChip;
+		public static HediffDef Void_RapidHealing;
+
 	}
 }

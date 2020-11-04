@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef>
+		<defName>Void_RapidHealing</defName>
+		<label>rapid healing</label>
+		<labelNoun>rapid healing</labelNoun>
+		<description>rapid healing</description>
+		<hediffClass>VoidEvents.Hediff_RapidHealing</hediffClass>
+		<stages>
+			<li>
+				<label>inactive</label>
+				<minSeverity>0</minSeverity>
+			</li>
+			<li>
+				<label>active</label>
+				<minSeverity>0.50</minSeverity>
+				<naturalHealingFactor>100.0</naturalHealingFactor>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>
