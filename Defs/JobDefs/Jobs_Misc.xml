@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+    <defName>UseSecronomControlChip</defName>
+    <driverClass>VoidEvents.JobDriver_UseItem</driverClass>
+    <reportString>using secronom control chip.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  
+</Defs>

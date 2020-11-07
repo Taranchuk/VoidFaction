@@ -26,6 +26,7 @@ namespace VoidEvents
 
 		public static HediffDef Void_SecronomControlChip;
 		public static HediffDef Void_RapidHealing;
+		public static JobDef UseSecronomControlChip;
 
 	}
 }

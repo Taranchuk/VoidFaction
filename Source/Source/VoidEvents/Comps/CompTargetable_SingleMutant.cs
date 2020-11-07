@@ -50,13 +50,7 @@ namespace VoidEvents
 	{
 		public override void DoEffectOn(Pawn user, Thing target)
 		{
-			Pawn pawn = (Pawn)target;
-			pawn.SetFaction(Faction.OfPlayer);
-			if (!pawn.health.hediffSet.HasHediff(VoidDefOf.Void_SecronomControlChip))
-            {
-				var hediff = HediffMaker.MakeHediff(VoidDefOf.Void_SecronomControlChip, pawn);
-				pawn.health.AddHediff(hediff);
-            }
+			user.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VoidDefOf.UseSecronomControlChip, target));
 		}
 	}
 }
