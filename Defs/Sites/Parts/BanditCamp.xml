@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SitePartDef ParentName="Outpost">
+    <defName>Void_BanditCamp</defName>
+    <label>void camp</label>
+    <description>A void camp.</description>
+    <tags Inherit="False">
+      <li>Void_BanditCamp</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>Void_BanditCamp</defName>
+    <linkWithSite>Void_BanditCamp</linkWithSite>
+    <order>450</order>
+    <genStep Class="VoidEvents.GenStep_VoidCamp"/>
+  </GenStepDef>
+  
+    <GenStepDef>
+    <defName>Void_BanditCampPower</defName>
+    <linkWithSite>Void_BanditCamp</linkWithSite>
+    <order>451</order>
+    <genStep Class="GenStep_Power"/>
+  </GenStepDef>
+
+</Defs>

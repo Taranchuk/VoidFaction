@@ -15,7 +15,7 @@ namespace VoidEvents
 {
     public class JobDriver_UseItem : JobDriver
     {
-        private int useDuration = 480;
+        private int useDuration = 40;
         public override void ExposeData()
         {
             base.ExposeData();
@@ -31,21 +31,27 @@ namespace VoidEvents
         {
             this.FailOnIncapable(PawnCapacityDefOf.Manipulation);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
+            this.job.count = 1;
+            yield return Toils_Haul.StartCarryThing(TargetIndex.A, putRemainderInQueue: false);
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch);
             Toil toil = Toils_General.Wait(useDuration);
             toil.WithProgressBarToilDelay(TargetIndex.A);
-            toil.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
             yield return toil;
             Toil use = new Toil();
             use.initAction = delegate
             {
                 Pawn actor = use.actor;
-                Pawn pawn = (Pawn)job.targetA.Thing;
-                pawn.SetFaction(Faction.OfPlayer);
-                if (!pawn.health.hediffSet.HasHediff(VoidDefOf.Void_SecronomControlChip))
+                Pawn animal = (Pawn)job.targetB.Thing;
+                animal.SetFaction(Faction.OfPlayer);
+                if (!animal.health.hediffSet.HasHediff(VoidDefOf.Void_SecronomControlChip))
                 {
-                	var hediff = HediffMaker.MakeHediff(VoidDefOf.Void_SecronomControlChip, pawn);
-                	pawn.health.AddHediff(hediff);
+                	var hediff = HediffMaker.MakeHediff(VoidDefOf.Void_SecronomControlChip, animal);
+                    animal.health.AddHediff(hediff);
+                }
+                foreach (var t in TrainableUtility.TrainableDefsInListOrder)
+                {
+                    animal.training.SetWantedRecursive(t, true);
+                    animal.training.Train(t, actor, true);
                 }
             };
             use.defaultCompleteMode = ToilCompleteMode.Instant;

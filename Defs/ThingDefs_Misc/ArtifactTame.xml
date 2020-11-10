@@ -1,7 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef ParentName="ArtifactBase">
+	<ThingDef ParentName="ResourceBase" Name="VoidArtifactBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<techLevel>Archotech</techLevel>
+		<thingCategories>
+			<li>Artifacts</li>
+		</thingCategories>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardHighFreq</li>
+		</thingSetMakerTags>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="VoidArtifactBase">
 		<defName>Void_SecronomControlChip</defName>
 		<label>Secronom control chip</label>
 		<description>placeholder.</description>
@@ -24,8 +41,9 @@
 				<moteOnTarget>Mote_PsycastPsychicEffect</moteOnTarget>
 				<moteConnecting>Mote_PsycastPsychicLine</moteConnecting>
 			</li>
-			<li>
-				<compClass>VoidEvents.CompTargetEffect_TameMutant</compClass>
+			<li Class="CompProperties_Usable">
+				<useJob>UseSecronomControlChip</useJob>
+				<useLabel>Activate</useLabel>
 			</li>
 			<li Class="CompProperties_UseEffectArtifact">
 				<sound>PsychicInsanityLanceCast</sound>

@@ -27,7 +27,12 @@ namespace VoidEvents
 			};
 		}
 
-		public bool CanTargetPawn(Pawn pawn)
+        public override void DoEffect(Pawn usedBy)
+        {
+
+        }
+
+        public bool CanTargetPawn(Pawn pawn)
         {
 			if (pawn != null)
             {
@@ -43,14 +48,6 @@ namespace VoidEvents
 		public override IEnumerable<Thing> GetTargets(Thing targetChosenByPlayer = null)
 		{
 			yield return targetChosenByPlayer;
-		}
-	}
-
-	public class CompTargetEffect_TameMutant : CompTargetEffect
-	{
-		public override void DoEffectOn(Pawn user, Thing target)
-		{
-			user.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VoidDefOf.UseSecronomControlChip, target));
 		}
 	}
 }

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>Void_PlanetKiller</defName>
+    <label>void planetary killer</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>World</li>
+    </targetTags>
+    <workerClass>VoidEvents.IncidentWorker_ActivateVoidPlanetaryKiller</workerClass>
+    <gameCondition>Void_PlanetKiller</gameCondition>
+    <letterLabel>void planetary killer</letterLabel>
+    <letterDef>NegativeEvent</letterDef>
+    <baseChance>0</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <durationDays>0.75~1.25</durationDays>
+  </IncidentDef>
+  
+    <GameConditionDef>
+    <defName>Void_PlanetKiller</defName>
+    <conditionClass>VoidEvents.GameCondition_VoidPlanetkiller</conditionClass>
+    <label>void planetkiller</label>
+    <letterText>void planetary killer</letterText>
+    <description>An interstellar planetkiller weapon is approaching this planet. It will smash the planet apart like a rifle bullet hitting an egg, annihilating all life.</description>
+  </GameConditionDef>
+  
+  <IncidentDef ParentName="GiveQuestBase">
+    <defName>Void_GiveQuest_EndGame_ShipEscape</defName>
+    <label>ship escape offer</label>
+    <letterLabel>Ship escape offer</letterLabel>
+    <questScriptDef>Void_EndGame_ShipEscape</questScriptDef>
+    <baseChance>0</baseChance> <!-- given by a special storyteller comp -->
+  </IncidentDef>
+
+</Defs>

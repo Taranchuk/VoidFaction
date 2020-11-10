@@ -24,7 +24,7 @@ namespace VoidEvents
         public override void Tick()
         {
             base.Tick();
-            if (lastHarmTick + (4 * GenDate.TicksPerHour) < Find.TickManager.TicksGame)
+            if (Find.TickManager.TicksGame < lastHarmTick + (4 * GenDate.TicksPerHour))
             {
                 this.Severity = 0;
             }

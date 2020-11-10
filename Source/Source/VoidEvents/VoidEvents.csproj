@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comps\CompTargetable_SingleMutant.cs" />
-    <Compile Include="Hediffs\Mutant.cs" />
+    <Compile Include="GameConditions\GameCondition_VoidPlanetkiller.cs" />
+    <Compile Include="Harmony\PostRemove_Patch.cs" />
+    <Compile Include="Harmony\HarmonyInit.cs" />
+    <Compile Include="Hediffs\Hediff_RapidHealing.cs" />
+    <Compile Include="Incidents\IncidentWorker_ActivateVoidPlanetaryKiller.cs" />
     <Compile Include="Incidents\IncidentWorker_CrashedShipPart.cs" />
     <Compile Include="Jobs\JobDriver_UseItem.cs" />
     <Compile Include="QuestNodes\QuestNode_RaidersArrive.cs" />
+    <Compile Include="Sites\GenStep_VoidCamp.cs" />
     <Compile Include="Sites\GenStep_NerotoninStash.cs" />
     <Compile Include="Things\Mutant.cs" />
     <Compile Include="Things\DefoliatorShipPart.cs" />

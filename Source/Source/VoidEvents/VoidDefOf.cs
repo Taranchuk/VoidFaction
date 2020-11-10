@@ -28,5 +28,10 @@ namespace VoidEvents
 		public static HediffDef Void_RapidHealing;
 		public static JobDef UseSecronomControlChip;
 
+		public static IncidentDef Void_GiveQuest_EndGame_ShipEscape;
+		public static IncidentDef Void_PlanetKiller;
+		public static ThingDef Void_PlanetaryKiller;
+		public static SitePartDef Void_BanditCamp;
+
 	}
 }
