@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\PlanetaryKiller.cs" />
     <Compile Include="Comps\CompTargetable_SingleMutant.cs" />
     <Compile Include="GameConditions\GameCondition_VoidPlanetkiller.cs" />
+    <Compile Include="Harmony\CountdownEnded_Patch.cs" />
     <Compile Include="Harmony\PostRemove_Patch.cs" />
     <Compile Include="Harmony\HarmonyInit.cs" />
     <Compile Include="Hediffs\Hediff_RapidHealing.cs" />
@@ -50,12 +52,18 @@
     <Compile Include="Incidents\IncidentWorker_CrashedShipPart.cs" />
     <Compile Include="Jobs\JobDriver_UseItem.cs" />
     <Compile Include="QuestNodes\QuestNode_RaidersArrive.cs" />
+    <Compile Include="Sites\GenStep_Power.cs" />
     <Compile Include="Sites\GenStep_VoidCamp.cs" />
     <Compile Include="Sites\GenStep_NerotoninStash.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_OutdoorLighting.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_EdgeDefense.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_VoidSettlement.cs" />
     <Compile Include="Things\Mutant.cs" />
     <Compile Include="Things\DefoliatorShipPart.cs" />
     <Compile Include="ShipPawnTypes.cs" />
     <Compile Include="Thoughts\ThoughtWorker_EerieNoises.cs" />
+    <Compile Include="CaravanArrivalAction_VisitEscapeShip.cs" />
+    <Compile Include="VoidUtils.cs" />
     <Compile Include="VoidDefOf.cs" />
     <Compile Include="QuestNodes\QuestNode_GetFactionFromDef.cs" />
     <Compile Include="Sites\SitePartWorker_NerotoninStash.cs" />
@@ -63,6 +71,8 @@
     <Compile Include="VoidMod.cs" />
     <Compile Include="VoidGameComp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorldComps\EscapeShipComp.cs" />
+    <Compile Include="WorldComps\PlanetaryKillerComp.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">

@@ -31,7 +31,14 @@ namespace VoidEvents
 		public static IncidentDef Void_GiveQuest_EndGame_ShipEscape;
 		public static IncidentDef Void_PlanetKiller;
 		public static ThingDef Void_PlanetaryKiller;
-		public static SitePartDef Void_BanditCamp;
+		public static WorldObjectDef Void_PlanetaryKillerSite;
 
+	}
+
+	[DefOf]
+	public static class VoidDefOf2
+	{
+		public static SitePartDef Void_PlanetaryKillerSite;
+		public static GameConditionDef Void_PlanetKiller;
 	}
 }

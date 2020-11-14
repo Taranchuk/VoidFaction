@@ -58,6 +58,12 @@ namespace VoidEvents
 			Impact();
 		}
 
+		public void EndNoImpact()
+        {
+			base.End();
+
+        }
+
 		private void Impact()
 		{
 			ScreenFader.SetColor(Color.clear);

@@ -33,7 +33,7 @@ namespace VoidEvents
                     return false;
                 }
             }
-            if (Find.World.worldObjects.Settlements.Where(x => x.Faction.def == VoidDefOf.RH_VOID).Any())
+            if (Find.World.worldObjects.Settlements.Where(x => x.Faction?.def == VoidDefOf.RH_VOID).Any())
             {
                 return false;
             }
@@ -55,7 +55,15 @@ namespace VoidEvents
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             var tile = FindTileAtIceSheet();
-            var worldObject = SiteMaker.MakeSite(VoidDefOf.Void_BanditCamp, tile, parms.faction);
+            if (parms.faction == null)
+            {
+                var faction = FactionGenerator.NewGeneratedFaction(VoidDefOf.RH_VOID);
+                faction.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile, false, null, null);
+                Find.FactionManager.Add(faction);
+                parms.faction = faction;
+            }
+            Log.Message("parms.faction: " + parms.faction);
+            var worldObject = VoidUtils.MakeSite(VoidDefOf.Void_PlanetaryKillerSite, VoidDefOf2.Void_PlanetaryKillerSite, tile, parms.faction);
             Find.WorldObjects.Add(worldObject);
             GameConditionManager gameConditionManager = parms.target.GameConditionManager;
             GameCondition gameCondition = GameConditionMaker.MakeCondition(duration: Mathf.RoundToInt(def.durationDays.RandomInRange * 60000f), def: def.gameCondition);
